@@ -19,12 +19,13 @@ def weighted_choice(somedict):
     return dec
 
 def reaction(ro, re):
-    if ro > re:
+    td = ro - re
+    if td > 2:
         return "You should have enjoyed dinner tonight!"
-    elif ro == re:
-        return "So dinner was okay tonight, I guess?"
-    else:
+    elif td < -2:
         return "Aww, I'm sorry. I'm sure you can get better food next time."
+    else:
+        return "So dinner was okay tonight, I guess?"
 
 def ask_yn(prompt, default):
     while True:
@@ -78,8 +79,6 @@ try:
 except IOError:
     has_file = False
     print "Creating restaurant database file .restaurantdb ..."
-    f = open(".restaurantdb", "w")
-    f.write(json.dumps({}))
 if has_file:
     inp_file = f.read()
     dic = json.loads(inp_file)
