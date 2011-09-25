@@ -6,17 +6,6 @@ import json
 rate = 0.25
 dic = {}
 
-def apply_decision(dec):
-    n = randint(0, len(lst)-1)
-    if dec == 1:
-        lst[n] = lst[n]+1
-    elif dec == 2:
-        lst[n] = lst[n]-1
-    elif dec == 3:
-        lst.append(lst[n]+1)
-    elif dec == 4:
-        lst.pop(n)
-
 def weighted_choice(somedict):
     n = uniform(0, 1)
     chsum = 0
